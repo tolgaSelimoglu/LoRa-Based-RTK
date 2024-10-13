@@ -346,8 +346,8 @@
       "version": 1
     },
     "net_format_name": "",
-    "page_layout_descr_file": "",
-    "plot_directory": "",
+    "page_layout_descr_file": "${KICAD_USER_TEMPLATE_DIR}/deneme_2.kicad_wks",
+    "plot_directory": "../../../../../../Downloads/",
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
     "spice_model_current_sheet_as_root": true,
@@ -362,8 +362,44 @@
       ""
     ],
     [
-      "1d4a7f98-5903-46b7-b076-5c000f252fc0",
-      "Microcontroller"
+      "b93a15ab-2718-4736-98fb-a30ec812e6c5",
+      "microcontroller"
+    ],
+    [
+      "e5e0a9ec-b2e5-4087-bac4-cbe999b031c7",
+      "Sensors"
+    ],
+    [
+      "1868d368-5dcd-489e-a7be-c38e968f27db",
+      "IMU's1"
+    ],
+    [
+      "b40070c5-293f-4b66-bb06-70c3eee54355",
+      "Lidar1"
+    ],
+    [
+      "567e1ff8-b6b8-4e24-a613-47a025e50bec",
+      "GPS1"
+    ],
+    [
+      "7ba683e4-8560-4591-ac55-0ea6474a6de1",
+      "LoRa"
+    ],
+    [
+      "2745c33f-e221-4beb-a905-a3e0b1a1d529",
+      "Actuator"
+    ],
+    [
+      "0506d25d-8866-4e6b-88b0-512e37e423e6",
+      "Microcontroller_Base"
+    ],
+    [
+      "fb273df0-3632-4767-bfae-cb41936b35f2",
+      "Base_Lora"
+    ],
+    [
+      "86401f53-0ef9-4ce1-883e-70f1590e23fd",
+      "GPS_Base"
     ]
   ],
   "text_variables": {}
