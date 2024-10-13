@@ -347,7 +347,7 @@
     },
     "net_format_name": "",
     "page_layout_descr_file": "${KICAD_USER_TEMPLATE_DIR}/deneme_2.kicad_wks",
-    "plot_directory": "../../../../../../Downloads/",
+    "plot_directory": "../../../../../../Downloads/svg_diagrams/",
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
     "spice_model_current_sheet_as_root": true,
@@ -363,7 +363,7 @@
     ],
     [
       "b93a15ab-2718-4736-98fb-a30ec812e6c5",
-      "microcontroller"
+      "SingleBoardComputer - Rover"
     ],
     [
       "e5e0a9ec-b2e5-4087-bac4-cbe999b031c7",
@@ -391,7 +391,7 @@
     ],
     [
       "0506d25d-8866-4e6b-88b0-512e37e423e6",
-      "Microcontroller_Base"
+      "SingleBoardComputer_Base"
     ],
     [
       "fb273df0-3632-4767-bfae-cb41936b35f2",
