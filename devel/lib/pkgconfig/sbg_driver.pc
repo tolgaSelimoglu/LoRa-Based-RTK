@@ -1,0 +1,8 @@
+prefix=/home/bc/projects/otonom_ws/devel
+
+Name: sbg_driver
+Description: Description of sbg_driver
+Version: 3.2.0
+Cflags: -I/home/bc/projects/otonom_ws/devel/include -I/home/bc/projects/otonom_ws/src/kuzu_external/sbg_ros_driver/src
+Libs: -L${prefix}/lib 
+Requires: message_runtime roscpp sensor_msgs std_msgs std_srvs geometry_msgs rtcm_msgs nmea_msgs

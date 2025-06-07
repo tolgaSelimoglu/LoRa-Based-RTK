@@ -1,0 +1,66 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import rospy
+from geometry_msgs.msg import Twist
+import serial
+
+# Sınırlar
+Z_MIN = 0
+Z_MAX = 180
+X_MIN = -1.0
+X_MAX = 1.0
+
+# Başlangıç değerleri
+x = 0.0
+z = 0.0
+
+# UART bağlantısını başlat
+try:
+    ser = serial.Serial(
+        port='/dev/esp32',
+        baudrate=115200,
+        timeout=10
+    )
+    print "✅ UART bağlantısı kuruldu."
+except serial.SerialException as e:
+    print "❌ UART bağlantı hatası:", e
+    exit()
+
+
+# UART mesaj gönderme fonksiyonu
+def send_uart_update():
+    global x, z
+    msg = "{:.2f}/{:.2f}".format(x, z)
+    print "📤 UART mesajı:", msg
+    try:
+        ser.write(msg + '\n')
+    except Exception as e:
+        print "⚠️ UART gönderim hatası:", e
+
+
+# /cmd_vel mesajlarını alıp işle
+def cmd_vel_callback(msg):
+    global x, z
+
+    # Gelen değerleri sınırla
+    x_raw = msg.linear.x
+    z_raw = msg.angular.z
+
+    # Clamp işlemi ve dönüşüm (örnek: z [-1,1] → [0,180])
+    x = max(min(x_raw, X_MAX), X_MIN)
+    z = max(min(z_raw * 90 + 90, Z_MAX), Z_MIN)
+
+    send_uart_update()
+
+
+def main():
+    rospy.init_node('cmd_vel_uart_bridge', anonymous=True)
+    rospy.Subscriber('/cmd_vel', Twist, cmd_vel_callback)
+    print "📡 /cmd_vel dinleniyor..."
+    rospy.spin()
+
+
+if __name__ == "__main__":
+    main()
+

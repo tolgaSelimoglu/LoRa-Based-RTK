@@ -1,0 +1,8 @@
+prefix=/home/bc/projects/otonom_ws/install
+
+Name: kuzu_robot
+Description: Description of kuzu_robot
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
