@@ -1,17 +1,10 @@
 digraph G {
-"base_link" -> "laser"[label="Broadcaster: /laser_broadcaster\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1749058932.255 sec old)\nBuffer length: 0.000 sec\n"];
-"base_link" -> "rear_left_wheel"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 1749058932.164 ( 0.092 sec old)\nBuffer length: 4.800 sec\n"];
-"base_link" -> "rear_right_wheel"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 1749058932.164 ( 0.092 sec old)\nBuffer length: 4.800 sec\n"];
-"base_link" -> "front_left_wheel"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 1749058932.164 ( 0.092 sec old)\nBuffer length: 4.800 sec\n"];
-"base_link" -> "front_right_wheel"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 1749058932.164 ( 0.092 sec old)\nBuffer length: 4.800 sec\n"];
-"map" -> "odom"[label="Broadcaster: /hector_mapping\nAverage rate: 2.189 Hz\nMost recent transform: 1749058931.189 ( 1.066 sec old)\nBuffer length: 4.569 sec\n"];
-"map" -> "scanmatcher_frame"[label="Broadcaster: /hector_mapping\nAverage rate: 2.189 Hz\nMost recent transform: 1749058931.189 ( 1.066 sec old)\nBuffer length: 4.569 sec\n"];
+"scanmatcher_frame" -> "base_link"[label="Broadcaster: /scanmather_frame_to_base_link\nAverage rate: 10.181 Hz\nMost recent transform: 1749492502.076 ( -0.097 sec old)\nBuffer length: 4.911 sec\n"];
+"odom" -> "scanmatcher_frame"[label="Broadcaster: /imu_to_odom\nAverage rate: 25.283 Hz\nMost recent transform: 1749492501.956 ( 0.023 sec old)\nBuffer length: 4.825 sec\n"];
+"base_link" -> "laser"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1749492501.979 sec old)\nBuffer length: 0.000 sec\n"];
+"map" -> "odom"[label="Broadcaster: /amcl\nAverage rate: 11.853 Hz\nMost recent transform: 1749492501.937 ( 0.042 sec old)\nBuffer length: 4.809 sec\n"];
 edge [style=invis];
  subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
-"Recorded at time: 1749058932.255"[ shape=plaintext ] ;
- }->"base_link";
-edge [style=invis];
- subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
-"Recorded at time: 1749058932.255"[ shape=plaintext ] ;
+"Recorded at time: 1749492501.979"[ shape=plaintext ] ;
  }->"map";
 }

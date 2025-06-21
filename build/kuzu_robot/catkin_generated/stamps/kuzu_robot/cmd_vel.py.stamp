@@ -18,7 +18,7 @@ z = 0.0
 # UART bağlantısını başlat
 try:
     ser = serial.Serial(
-        port='/dev/ttyUSB1',
+        port='/dev/esp32',
         baudrate=115200,
         timeout=10
     )
@@ -38,17 +38,49 @@ def send_uart_update():
     except Exception as e:
         print "⚠️ UART gönderim hatası:", e
 
+def parse_location_data(serial_line):
+    """
+    Serial'den gelen 'enlem/boylam/uzaklık' formatındaki veriyi parse eder.
+    Örnek: " 41.123456/29.987654/12.45 "
+    """
+    try:
+        line = serial_line.decode('utf-8').strip()
+        parts = line.split('/')
 
-# /cmd_vel mesajlarını alıp işle
+        if len(parts) != 3:
+            raise ValueError("Beklenen format: enlem/boylam/uzaklik")
+
+        enlem = float(parts[0].strip())
+        boylam = float(parts[1].strip())
+        uzaklik = float(parts[2].strip())
+
+        return {
+            'enlem': enlem,
+            'boylam': boylam,
+            'uzaklik': uzaklik
+        }
+    except Exception as e:
+        print "Parsing hatasi: {e} -> Gelen veri: {serial_line}"
+        return None
+
+
 def cmd_vel_callback(msg):
     global x, z
 
     # Gelen değerleri sınırla
-    x_raw = msg.linear.x
-    z_raw = msg.angular.z
+    
+    x_raw =  msg.linear.x 
+    z_raw =  msg.angular.z
 
-    # Clamp işlemi ve dönüşüm (örnek: z [-1,1] → [0,180])
-    x = max(min(x_raw, X_MAX), X_MIN)
+    if 0.11 <= x_raw <= 0.13:
+        x = x_raw
+    elif 0.13 <= x_raw:
+        x = 0.13
+    elif 0.11 >= x_raw >0.01:
+        x = 0.11
+    else:
+        x = 0.0
+
     z = max(min(z_raw * 90 + 90, Z_MAX), Z_MIN)
 
     send_uart_update()
@@ -60,7 +92,13 @@ def main():
     print "📡 /cmd_vel dinleniyor..."
     rospy.spin()
 
+def uart_receive():
+    if ser.in_waiting > 0:
+        raw_line = ser.readline()
+        data = parse_location_data(raw_line)
+        if data:
+            print "Enlem: {data['enlem']} , Boylam: {data['boylam']}, Uzaklik: {data['uzaklik']} m"
 
 if __name__ == "__main__":
     main()
-
+    uart_receive()

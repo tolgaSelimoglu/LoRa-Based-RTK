@@ -4,14 +4,13 @@ import rospy
 from nav_msgs.msg import Odometry
 from sbg_driver.msg import SbgImuData
 import tf
-import math
 
 def imu_callback(msg):
     # 1. Yeni bir Odometry mesajı oluşturup header zamanını IMU zamanıyla eşitliyoruz
     odom_msg = Odometry()
     odom_msg.header.stamp = msg.header.stamp
     odom_msg.header.frame_id = "odom"
-    odom_msg.child_frame_id = "scanmatcher_frame"
+    odom_msg.child_frame_id = "base_link"
 
     # 2. Pozisyonu sabit tutuyoruz (örnek: aracın yerde sabit konumu)
     odom_msg.pose.pose.position.x = 0.0
@@ -43,7 +42,7 @@ def imu_callback(msg):
         (0.0, 0.0, 0.0),
         (0.0, 0.0, 0.0, 1.0),
         msg.header.stamp,
-        "scanmatcher_frame",
+        "base_link",
         "odom"
     )
 

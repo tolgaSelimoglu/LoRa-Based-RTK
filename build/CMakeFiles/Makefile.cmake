@@ -50,6 +50,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/bc/projects/otonom_ws/src/kuzu_robot/cmd_vel.py"
   "/home/bc/projects/otonom_ws/src/kuzu_robot/imu_to_odom.py"
   "/home/bc/projects/otonom_ws/src/kuzu_robot/package.xml"
+  "/home/bc/projects/otonom_ws/src/kuzu_robot/radius_forwarder.py"
   "/opt/ros/melodic/share/actionlib/cmake/actionlib-msg-extras.cmake"
   "/opt/ros/melodic/share/actionlib/cmake/actionlibConfig-version.cmake"
   "/opt/ros/melodic/share/actionlib/cmake/actionlibConfig.cmake"

@@ -7,6 +7,7 @@ catkin_package()
 catkin_install_python(PROGRAMS
   cmd_vel.py
   imu_to_odom.py
+  radius_forwarder.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 include_directories(${catkin_INCLUDE_DIRS})

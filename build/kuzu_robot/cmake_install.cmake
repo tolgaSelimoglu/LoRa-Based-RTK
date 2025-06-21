@@ -60,3 +60,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/kuzu_robot" TYPE PROGRAM FILES "/home/bc/projects/otonom_ws/build/kuzu_robot/catkin_generated/installspace/imu_to_odom.py")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/kuzu_robot" TYPE PROGRAM FILES "/home/bc/projects/otonom_ws/build/kuzu_robot/catkin_generated/installspace/radius_forwarder.py")
+endif()
+
