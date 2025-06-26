@@ -26,11 +26,11 @@ Bu proje, kapalı alanlarda GPS kaynaklı lokalizasyon sorunlarına çözüm ola
   → Proje dokümantasyon dosyaları (Tasarım dokümanları, kullanım kılavuzları, şemalar ve şematik diyagramlar).  
 
 
-- <a href="  https://github.com/tolgaSelimoglu/LoRa-Based-RTK/tree/jetson_ws" style="color: white; font-weight: bold;"><b>jetson-ws</b></a>   
+- <a href="https://github.com/tolgaSelimoglu/LoRa-Based-RTK/tree/jetson_ws" style="color: white; font-weight: bold;"><b>jetson-ws</b></a>   
   → NVIDIA Jetson Nano üzerinde çalışan ROS workspace’i. `rtk_comm`, `lora_bridge` ve `navigation` paketlerini içerir.  
 
 
-- <a href="   https://github.com/tolgaSelimoglu/LoRa-Based-RTK/tree/main" style="color: white; font-weight: bold;"><b>main</b></a>    
+- <a href="https://github.com/tolgaSelimoglu/LoRa-Based-RTK/tree/main" style="color: white; font-weight: bold;"><b>main</b></a>    
   → Kararlı (stable) sürüm kodları. Üretim ortamına deploy edilebilecek haliyle Rover ve Base Station uygulamaları.  
 
 
