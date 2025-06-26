@@ -1,9 +1,7 @@
-obstacle_range: 3.0
+obstacle_range: 0.5
 raytrace_range: 3.5
-
 robot_radius: 0.4
 inflation_radius: 1.0
-cost_scaling_factor: 3.0
 
 observation_sources: scan
 scan:

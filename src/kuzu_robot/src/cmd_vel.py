@@ -22,9 +22,9 @@ try:
         baudrate=115200,
         timeout=10
     )
-    print "✅ UART bağlantısı kuruldu."
+    print " UART bağlantisi kuruldu."
 except serial.SerialException as e:
-    print "❌ UART bağlantı hatası:", e
+    print " UART bağlanti hatasi:", e
     exit()
 
 
@@ -32,11 +32,10 @@ except serial.SerialException as e:
 def send_uart_update():
     global x, z
     msg = "{:.2f}/{:.2f}".format(x, z)
-    print "📤 UART mesajı:", msg
     try:
         ser.write(msg + '\n')
     except Exception as e:
-        print "⚠️ UART gönderim hatası:", e
+        print " UART gönderim hatasi:", e
 
 def parse_location_data(serial_line):
     """
@@ -89,15 +88,12 @@ def cmd_vel_callback(msg):
 def main():
     rospy.init_node('cmd_vel_uart_bridge', anonymous=True)
     rospy.Subscriber('/cmd_vel', Twist, cmd_vel_callback)
-    print "📡 /cmd_vel dinleniyor..."
     rospy.spin()
 
 def uart_receive():
     if ser.in_waiting > 0:
         raw_line = ser.readline()
         data = parse_location_data(raw_line)
-        if data:
-            print "Enlem: {data['enlem']} , Boylam: {data['boylam']}, Uzaklik: {data['uzaklik']} m"
 
 if __name__ == "__main__":
     main()
